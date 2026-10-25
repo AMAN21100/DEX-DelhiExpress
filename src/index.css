@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer utilities {
+  .h-18 {
+    height: 4.5rem;
+  }
+}
+
+
+:root {
+  --et-blue: #2D89EF;
+  --et-blue-dark: #1a6fd4;
+  --et-teal: #00C897;
+  --et-teal-dark: #00a87e;
+  --et-navy: #0F172A;
+  --et-navy-mid: #1E293B;
+  --et-navy-light: #334155;
+  --et-gray: #F5F7FA;
+  --et-gray-mid: #E2E8F0;
+  --et-green: #10B981;
+  --et-orange: #F59E0B;
+  --et-red: #EF4444;
+  --et-purple: #8B5CF6;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-mono-data {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px rgba(45, 137, 239, 0.08);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Gradient backgrounds */
+.bg-navy-gradient {
+  background: linear-gradient(135deg, #0F172A 0%, #1a2744 50%, #0d1f3c 100%);
+}
+
+.bg-blue-gradient {
+  background: linear-gradient(135deg, #2D89EF 0%, #1a6fd4 100%);
+}
+
+.bg-teal-gradient {
+  background: linear-gradient(135deg, #00C897 0%, #009d78 100%);
+}
+
+/* Status badges */
+.status-green { background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); }
+.status-orange { background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); }
+.status-red { background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+.status-blue { background: rgba(45, 137, 239, 0.15); color: #2D89EF; border: 1px solid rgba(45, 137, 239, 0.3); }
+.status-purple { background: rgba(139, 92, 246, 0.15); color: #8B5CF6; border: 1px solid rgba(139, 92, 246, 0.3); }
+.status-teal { background: rgba(0, 200, 151, 0.15); color: #00C897; border: 1px solid rgba(0, 200, 151, 0.3); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(45, 137, 239, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(45, 137, 239, 0.6); }
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 137, 239, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(45, 137, 239, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+@keyframes move-bus {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(0px); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-move-bus { animation: move-bus 3s ease-in-out infinite; }
+
+/* Map placeholder */
+.map-container {
+  background: linear-gradient(135deg, #1a2744 0%, #0d2040 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(45, 137, 239, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 137, 239, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Hover transitions */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(45, 137, 239, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2D89EF, #1a6fd4);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(45, 137, 239, 0.4);
+}
+
+.btn-teal {
+  background: linear-gradient(135deg, #00C897, #009d78);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn-teal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 200, 151, 0.4);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Input styles */
+.input-field {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: white;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: #2D89EF;
+  box-shadow: 0 0 0 3px rgba(45, 137, 239, 0.15);
+}
+
+.input-light {
+  background: white;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #0F172A;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-light:focus {
+  border-color: #2D89EF;
+  box-shadow: 0 0 0 3px rgba(45, 137, 239, 0.1);
+}

@@ -1,0 +1,10 @@
+{
+  "description": "EquiTransit streamlines public transport in Delhi with AI-driven bus management, offering real-time tracking, efficient ticketing, and data analytics for passengers and administrators.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
