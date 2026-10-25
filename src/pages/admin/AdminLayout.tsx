@@ -5,6 +5,7 @@ import AdminDashboard from './AdminDashboard'
 import FleetManagement from './FleetManagement'
 import DriverManagement from './DriverManagement'
 import RouteManagement from './RouteManagement'
+import RouteDiversionManager from './RouteDiversionManager'
 import AIControlCenter from './AIControlCenter'
 import Analytics from './Analytics'
 import SafetyCenter from './SafetyCenter'
@@ -15,7 +16,7 @@ interface Props {
   onNavigate: (page: AppPage) => void
 }
 
-export type AdminTab = 'dashboard' | 'fleet' | 'drivers' | 'routes' | 'ai' | 'analytics' | 'safety' | 'shelters' | 'logs'
+export type AdminTab = 'dashboard' | 'fleet' | 'drivers' | 'routes' | 'diversion' | 'ai' | 'analytics' | 'safety' | 'shelters' | 'logs'
 
 const navGroups = [
   {
@@ -30,6 +31,7 @@ const navGroups = [
       { id: 'fleet' as AdminTab, icon: '🚌', label: 'Fleet Management' },
       { id: 'drivers' as AdminTab, icon: '👨‍✈️', label: 'Driver Management' },
       { id: 'routes' as AdminTab, icon: '🛣️', label: 'Route Management' },
+      { id: 'diversion' as AdminTab, icon: '⚡', label: 'Route Diversions' },
       { id: 'shelters' as AdminTab, icon: '🏠', label: 'Smart Shelters' },
     ],
   },
@@ -97,6 +99,7 @@ export default function AdminLayout({ onNavigate }: Props) {
       case 'fleet': return <FleetManagement />
       case 'drivers': return <DriverManagement />
       case 'routes': return <RouteManagement />
+      case 'diversion': return <RouteDiversionManager />
       case 'ai': return <AIControlCenter />
       case 'analytics': return <Analytics />
       case 'safety': return <SafetyCenter />
@@ -220,6 +223,9 @@ export default function AdminLayout({ onNavigate }: Props) {
                     >
                       <span className="text-sm shrink-0">{item.icon}</span>
                       <span className="truncate flex-1">{item.label}</span>
+                      {item.id === 'diversion' && (
+                        <span className="size-2 rounded-full bg-amber-400 animate-ping" />
+                      )}
                       {item.id === 'safety' && (
                         <span className="bg-[#EF4444] text-white rounded-full px-1.5 py-0.5 text-[9px] font-bold">
                           2
